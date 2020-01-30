@@ -71,8 +71,8 @@ const SimpleSlider = (props) => {
       activeIndex={activeIndex}
       next={next}
       previous={previous}
-      width="100% vw"
-      height="100% vh"
+      width="100 vw"
+      height="100 vh"
     >
       <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
       {slides}
