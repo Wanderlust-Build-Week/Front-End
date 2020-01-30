@@ -2,24 +2,18 @@ import React from 'react';
 import './App.css';
 import {Route} from 'react-router-dom'
 import {BrowserRouter as Router} from "react-router-dom"
-import TourGuide from './components/TourGuide'
-import NewTourForm from './components/NewTourForm'
-import Login1 from './components/Login1'
-import Register1 from './components/Register1'
-import Nav1 from './components/Nav1'
+import Landing from './Components/Landing/Landing';
 
 function App(props) {
   console.log("app props", props)
+
   return (
-    <Router>
+  
       <div className="App">
-        <Route exact path="/" render={props =><Nav1 {...props}/>}/>
-        <Route path="/register" render={ props =><Register1 {...props}/>}/>
-        <Route path="/login" render={ props =><Login1 {...props}/>}/>
-        <Route path="/tourguide/:id" component={TourGuide}/>
-        <Route path="/tourguide/newTourForm" component={NewTourForm}/>
+      
+        <Landing />
       </div>
-    </Router>
+ 
     
   );
 }
