@@ -9,10 +9,7 @@ import './Slider.css';
 import {
   Carousel,
   CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption
-} from 'reactstrap';
+  } from 'reactstrap';
 
 const items = [
   {
@@ -71,13 +68,9 @@ const SimpleSlider = (props) => {
       activeIndex={activeIndex}
       next={next}
       previous={previous}
-      width="100 vw"
-      height="100 vh"
     >
-      <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
       {slides}
-      <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-      <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+
     </Carousel>
   );
 }
