@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import './NavBar.scss';
 import { MenuData } from './MenuData';
 import Logo from '../../assests/wanderlust-logo.png';
@@ -18,7 +18,7 @@ const NavBar = () => {
                 <ul className="menu-items">
                   {MenuData.map( item => (
                     <li className="menu-list" key={item.label}>
-                      <a className="menu-link" href={item.path}>{item.label}</a>
+                      <Link className="menu-link" to={item.path}>{item.label}</Link>
                     </li>
                   ))}
                 </ul>
