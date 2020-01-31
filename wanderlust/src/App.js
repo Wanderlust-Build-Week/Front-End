@@ -10,8 +10,9 @@ import Home1 from './components/Home1'
 
 function App(props) {
   console.log("app props", props)
+
   return (
-    <Router>
+  
       <div className="App">
         <Route exact path="/" render={props =><Home1 {...props}/>}/>
         <Route path="/register" render={ props =><Register1 {...props}/>}/>
@@ -19,7 +20,7 @@ function App(props) {
         <Route path="/tourguide/:id" component={TourGuide}/>
         <Route path="/tourguide/newTourForm" component={NewTourForm}/>
       </div>
-    </Router>
+ 
     
   );
 }
