@@ -14,13 +14,15 @@ export const StyledNav = styled.div`
         width: 30%;
     }
     img{
-        width:30 %;
+        width: 34%;
+        margin: 1%;
     }
 
     .menu-list-wrapper{
         display: flex;
     align-items: center;
         width: 80%;
+        margin-top: 15px;
     }
     .menu-items{
         display: flex;
