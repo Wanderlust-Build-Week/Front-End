@@ -17,7 +17,7 @@ export const MenuData = [
     },
     {
         label: 'LOGIN', 
-        path: '#',
+        path: '/login',
     },
 
     
