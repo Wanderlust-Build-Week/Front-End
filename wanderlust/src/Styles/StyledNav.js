@@ -6,14 +6,15 @@ export const StyledNav = styled.div`
 
     .NavBar {
         display: flex;
-        background-color: rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.6);
         height: 80px;
+        position: fixed;
     }
     .logo{
-        width: 25%;
+        width: 30%;
     }
     img{
-        width:35%;
+        width:30 %;
     }
 
     .menu-list-wrapper{

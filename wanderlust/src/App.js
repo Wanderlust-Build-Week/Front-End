@@ -1,12 +1,20 @@
 import React from 'react';
 import './App.css';
+import {Route} from 'react-router-dom'
+import Landing from './Components/Landing/Landing';
 import NavBar from './Components/NavBar/NavBar'
+function App(props) {
+  console.log("app props", props)
 
-function App() {
   return (
-    <div className="App">
-      <NavBar />
-    </div>
+  
+      <div className="App">
+        <NavBar />
+      
+        <Landing />
+      </div>
+ 
+    
   );
 }
 
