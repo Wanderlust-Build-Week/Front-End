@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from './node_modules/react-router-dom';
 // import './NavBar.scss';
 import { MenuData } from './MenuData';
 import Logo from '../../assests/wanderlust-logo.png';
