@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 import {Route} from 'react-router-dom'
 import {BrowserRouter as Router} from "react-router-dom"
-import TourGuide from './components/TourGuide'
-import NewTourForm from './components/NewTourForm'
-import Login1 from './components/Login1'
-import Register1 from './components/Register1'
-import Home1 from './components/Home1'
+import TourGuide from './temp-components/TourGuide'
+import NewTourForm from './temp-components/NewTourForm'
+import Login1 from './temp-components/Login1'
+import Register1 from './temp-components/Register1'
+import Home1 from './temp-components/Home1'
 
 function App(props) {
   console.log("app props", props)
