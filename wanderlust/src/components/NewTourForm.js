@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import axios from 'axios';
 
 //Declaring my form values/wireframe w/ the Formik component
@@ -12,7 +11,7 @@ const NewTourForm = () => {
 			<h1>Book a New Tour!</h1>
 			{/*Step 1: Set up the fields of the form*/}
 			<Formik
-				initialValues={{ title: '', location: '', duration: 0, tourStyle:'' }}
+				initialValues={{ title: '', location: '', duration: '', tourStyle:'' }}
 				validate={(values) => {
 					const errors = {};
 					if (!values.title) {
@@ -33,16 +32,16 @@ const NewTourForm = () => {
 				{({ isSubmitting }) => {
 					return (
 						<Form>
-							<Field placeholder='title' name='title' />
+							<Field placeholder='Event Title' name='title' />
 							<Field placeholder='location' name='location' />
-							<Field placeholder='duration' type="number" name='duration' />
+							<Field placeholder='# of Days' type="number" name='duration' />
 							<Field name="tourStyle" component='select'>
 								<option>Professional</option>
 								<option>Private</option>
 							</Field>
 							<ErrorMessage name='title' component='div' />
 							<button type='submit' disabled={isSubmitting}>
-								Submit
+								Enter
 							</button>
 						</Form>
 					);
