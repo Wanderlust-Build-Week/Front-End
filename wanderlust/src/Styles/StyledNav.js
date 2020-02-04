@@ -31,11 +31,20 @@ export const StyledNav = styled.div`
         width: 100%;
         list-style-type: none;
         
+
+        
     }
 
     .menu-link{
         text-decoration: none;
         color: #333333;
 
+        &:hover {
+            
+            color: #3878b2;
+            
+        }
     }
 `
+
+
