@@ -7,6 +7,7 @@ import NewTourForm from './components/NewTourForm'
 import Login1 from './components/Login1'
 import Register1 from './components/Register1'
 import Home1 from './components/Home1'
+import FormikContactForm from './components/Contact'
 
 function App(props) {
   console.log("app props", props)
@@ -19,6 +20,8 @@ function App(props) {
         <Route path="/login" render={ props =><Login1 {...props}/>}/>
         <Route path="/tourguide/:id" component={TourGuide}/>
         <Route path="/tourguide/newTourForm" component={NewTourForm}/>
+        <Route path="/contact" render={ props =><FormikContactForm {...props}/>}/>
+
       </div>
  
     
