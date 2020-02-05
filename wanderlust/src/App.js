@@ -16,12 +16,11 @@ function App(props) {
   return (
   
       <div className="App">
-        {/* <Route exact path="/" render={props =><Home1 {...props}/>}/>
+        <Route exact path="/" render={props =><Home1 {...props}/>}/>
         <Route path="/register" render={ props =><Register1 {...props}/>}/>
         <Route path="/login" render={ props =><Login1 {...props}/>}/>
         <Route path="/tourguide/:id" component={TourGuide}/>
-        <Route path="/tourguide/newTourForm" component={NewTourForm}/> */}
-        <FormikNewTourForm start = "Location"/>
+        <Route path="/tourguide/newTourForm" component={FormikNewTourForm}/>
       </div>
  
     
