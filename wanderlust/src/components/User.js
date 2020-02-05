@@ -9,12 +9,11 @@ export default function User() {
     let [tourz, setTourz] = useState([])
 
     useEffect(() => {
-        axios.get(`https://swapi.co/api/planets/3/`)
+        axios.get(`https://wanderlust-shouts.herokuapp.com/api/tours`)
         .then(res => {
             // Code for handling API response
-            console.log("smurfs", res.data)
-            setTourz([res.data])
-            
+            console.log("res", res.data)
+            setTourz(res.data)
         })
         .catch(function(err) {
             console.log(err.error)
@@ -23,7 +22,7 @@ export default function User() {
 
     },[]);
 
-    console.log("tourz", tourz)
+    
     return (
         
         <div>
