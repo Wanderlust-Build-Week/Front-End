@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import * as Yup from "yup";
 import {Route} from 'react-router-dom'
 import {BrowserRouter as Router} from "react-router-dom"
 import TourGuide from './components/TourGuide'

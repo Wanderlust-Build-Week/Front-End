@@ -81,7 +81,7 @@ const FormikNewTourForm = withFormik({
         title: Yup.string().required("Please fill this in!"),
         start: Yup.string().required("Please fill this in!"),
         options: Yup.string(),
-        body: Yup.start(),
+        body: Yup.string(),
         duration: Yup.string().required("Please fill this in!"),
         options: Yup.string()
       .oneOf(["Private", "Professional"])
