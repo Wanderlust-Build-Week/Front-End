@@ -1,13 +1,14 @@
 import React from 'react'
-import Landing from './Landing/Landing'
 import NavBar from './NavBar/NavBar'
+import MyForm from './Contact/ContactForm'
 
-export default function Home1() {
+
+export default function Contact() {
     return (
         <div>
             <NavBar />
-            {/* <Landing /> */}
             
+            <MyForm />
         </div>
     )
 }
