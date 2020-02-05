@@ -6,7 +6,7 @@ export default function Home1() {
     return (
         <div>
             <NavBar />
-            <Landing />
+            {/* <Landing /> */}
             
         </div>
     )

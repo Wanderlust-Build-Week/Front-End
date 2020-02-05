@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import * as Yup from "yup";
 import {Route} from 'react-router-dom'
 import {BrowserRouter as Router} from "react-router-dom"
 import TourGuide from './components/TourGuide'
@@ -9,6 +10,7 @@ import Register from './components/Register'
 import Home1 from './components/Home1'
 import User from './components/User'
 import MyForm from './components/Contact'
+import FormikNewTourForm from './components/NewTourForm';
 
 function App(props) {
   console.log("app props", props)
@@ -20,7 +22,7 @@ function App(props) {
         <Route path="/register" render={ props =><Register {...props}/>}/>
         <Route path="/login" render={ props =><Login {...props}/>}/>
         <Route path="/tourguide/:id" component={TourGuide}/>
-        <Route path="/tourguide/newTourForm" component={NewTourForm}/>
+        <Route path="/tourguide/newTourForm" component={FormikNewTourForm}/>
         <Route path="/user" component={User}/>
         <Route path="/contact" render={ props =><MyForm {...props}/>}/>
 
