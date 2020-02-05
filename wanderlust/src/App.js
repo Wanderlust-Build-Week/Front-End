@@ -5,7 +5,7 @@ import {BrowserRouter as Router} from "react-router-dom"
 import TourGuide from './components/TourGuide'
 import NewTourForm from './components/NewTourForm'
 import Login from './components/Login'
-import Register1 from './components/Register1'
+import Register from './components/Register'
 import Home1 from './components/Home1'
 import User from './components/User'
 import MyForm from './components/Contact'
@@ -17,7 +17,7 @@ function App(props) {
   
       <div className="App">
         <Route exact path="/" render={props =><Home1 {...props}/>}/>
-        <Route path="/register" render={ props =><Register1 {...props}/>}/>
+        <Route path="/register" render={ props =><Register {...props}/>}/>
         <Route path="/login" render={ props =><Login {...props}/>}/>
         <Route path="/tourguide/:id" component={TourGuide}/>
         <Route path="/tourguide/newTourForm" component={NewTourForm}/>
