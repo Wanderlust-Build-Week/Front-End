@@ -6,6 +6,10 @@ import axios from "axios";
 const NewTourForm = ({ errors, touched, values, status }) => {
   const [forms , setForms] = useState([]);
 
+  useEffect(() => {
+    status && setForms(tours => [...tours, status]);
+  }, [status]);
+
   return (
     <div className="animal-form">
       <h1>Book Your Tour Today!!</h1>
@@ -59,6 +63,7 @@ const NewTourForm = ({ errors, touched, values, status }) => {
         </Field>
 
         <button type="submit">Enter</button>
+
       </Form>
 
     </div>
@@ -91,6 +96,17 @@ const FormikNewTourForm = withFormik({
 
     handleSubmit(values, { setForms, resetForm }) {
         console.log('Submitting Form:', values);
+
+        axios
+        .post("https://wanderlust-shouts.herokuapp.com/api/tours", values)
+        .then(res => {
+            console.log("Success:", res);
+            setForms(res.data);
+            resetForm();
+        })
+        .catch(err => {
+            console.log("Error:", err.res);
+        })
     }
 
 })(NewTourForm);
