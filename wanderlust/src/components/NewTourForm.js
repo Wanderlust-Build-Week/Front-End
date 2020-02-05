@@ -14,7 +14,9 @@ const NewTourForm = ({ errors, touched, values, status }) => {
           type="text"
           name="title"
           placeholder="Tour Title Here"
+          value={values.title}
         />
+        {touched.title && errors.title && <p>{errors.title}</p>}
 
         <Field
           type="text"
@@ -22,6 +24,7 @@ const NewTourForm = ({ errors, touched, values, status }) => {
           placeholder="Location Here"
           value={values.start}
         />
+        {touched.start && errors.start && <p>{errors.start}</p>}
 
         {/* <Field 
         type="text" 
@@ -35,19 +38,24 @@ const NewTourForm = ({ errors, touched, values, status }) => {
           type="text"
           name="body"
           placeholder="Tell us about it!"
+          value={values.body}
         />
+        
 
         <Field 
         placeholder='# of Days' 
         type="number" 
         name='duration' 
         placeholder="0"
+        value={values.duration}
         />
+        {touched.duration && errors.duration && <p>{errors.duration}</p>}
 
-        <Field component="select" name="options">
+        <Field component="select" name="options" value={values.options}>
           <option>Choose an option</option>
           <option>Private</option>
           <option>Professional</option>
+          {touched.options && errors.options && <p>{errors.options}</p>}
         </Field>
 
         <button type="submit">Enter</button>
@@ -62,12 +70,29 @@ const FormikNewTourForm = withFormik({
     mapPropsToValues({ start }) {
         return {
             title: "",
-            start: start,
+            start: start || "",
             body: "",
             duration: "",
             options: ""
         };
+    },
+
+    validationSchema: Yup.object().shape({
+        title: Yup.string().required("Please fill this in!"),
+        start: Yup.string().required("Please fill this in!"),
+        options: Yup.string(),
+        body: Yup.start(),
+        duration: Yup.string().required("Please fill this in!"),
+        options: Yup.string()
+      .oneOf(["Private", "Professional"])
+      .required("Please choose a value!"),
+
+}),
+
+    handleSubmit(values, { setForms, resetForm }) {
+        console.log('Submitting Form:', values);
     }
+
 })(NewTourForm);
 
 export default FormikNewTourForm;
