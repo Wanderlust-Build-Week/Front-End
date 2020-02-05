@@ -9,7 +9,7 @@ export const MenuData = [
     },
     {
         label: 'GET IN TOUCH', 
-        path: '/contact',
+        path: '#',
     },
     {
         label: 'ABOUT', 

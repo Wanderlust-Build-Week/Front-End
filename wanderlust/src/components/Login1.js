@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function NewTourForm() {
+export default function Login1() {
     return (
         <div>
-            Create new tour for you
+            Login form
         </div>
     )
 }
