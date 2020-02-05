@@ -1,91 +1,52 @@
-import React, { useState, useEffect } from 'react'
-import { withFormik, Form, Field, Formik } from "formik";
-import * as Yup from "yup";
-import axios from 'axios';
+import React from "react";
 import { StyledContact } from '../../Styles/StyledContact';
 
-
-
-function validateEmail(value) {
-    let error;
-    if (!value) {
-      error = 'Required';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-      error = 'Invalid email address';
-    } 
-    return error;
+export default class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.submitForm = this.submitForm.bind(this);
+    this.state = {
+      status: ""
+    };
   }
 
-
-
-
-  const ContactForm = ({ errors, touched, values, status, isSubmitting }) => {
-
-    const [user, setUser] = useState([])
-   
-    useEffect(() => {
-        status && 
-        setUser(users => [
-            ...users, 
-            status
-        ])
-    }, [status])
-
-
+  render() {
+    const { status } = this.state;
     return (
-        <div>
-            <StyledContact>
-            <div className="contact-wrapper">
-            <h1 className="heading">Contact Us</h1>
-            <Form className="contactForm">
-            <Field type="text" name="name" placeholder="Name" value={values.name} />
-                
-            <Field type="text" name="email" placeholder="Email" value={values.email} validate={validateEmail}/>
-                {errors.email && touched.email && <div>{errors.email}</div>}
+        <StyledContact>
+      <form className="contactForm"
+        onSubmit={this.submitForm}
+        action="https://formspree.io/xvoarzpv"
+        method="POST"
+      >
+       <h1> Contact us!</h1>
+        <input type="name" name="name" placeholder="Enter your name" />
+       
+        <input type="email" name="email" placeholder="Enter your Email" />
+        
+        <input type="textarea" name="message" placeholder="What would you like to say?"/>
+        {status === "SUCCESS" ? <p>Thanks!</p> : <button>Submit</button>}
+        {status === "ERROR" && <p>Ooops! There was an error.</p>}
+      </form></StyledContact>
+    );
+  }
 
-                <Field type="textarea" name="message" placeholder="Your Message" />
-
-                <button type="submit" disabled={isSubmitting}>Submit</button>
-            </Form>
-            </div>
-            </StyledContact>
-        </div>
-    )
+  submitForm(ev) {
+    ev.preventDefault();
+    const form = ev.target;
+    const data = new FormData(form);
+    const xhr = new XMLHttpRequest();
+    xhr.open(form.method, form.action);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.status === 200) {
+        form.reset();
+        this.setState({ status: "SUCCESS" });
+      } else {
+        this.setState({ status: "ERROR" });
+      }
+    };
+    xhr.send(data);
+  }
 }
-
-
-
-const FormikContactForm = withFormik({
-    mapPropsToValues({ user }) {
-        return {
-            name: "", 
-            email: "",
-            message: "",
-            
-        };
-    }, 
-    validationSchema: Yup.object().shape({
-        name: Yup.string().required('Name Required'),
-        email: Yup.string().required('Please enter a valid email address'),
-        message: Yup.string().required('Please enter a message'),
-    }),
-
-    handleSubmit(values, { setStatus, resetForm }) {
-        console.log('submitting form:', values);
-        axios.post
-        ("https://reqres.in/api/users", values)
-
-        .then( res => {
-            console.log('Success:', res);
-            setStatus(res.data);
-            resetForm();
-        })
-        .catch(err => {
-            console.log('Error:', err.response);
-        });
-    }
-
-})(ContactForm);
-
-
-export default FormikContactForm;

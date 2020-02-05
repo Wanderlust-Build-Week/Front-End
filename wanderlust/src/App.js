@@ -8,6 +8,8 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Home1 from './components/Home1'
 import User from './components/User'
+import MyForm from './components/Contact'
+
 function App(props) {
   console.log("app props", props)
 
@@ -20,6 +22,8 @@ function App(props) {
         <Route path="/tourguide/:id" component={TourGuide}/>
         <Route path="/tourguide/newTourForm" component={NewTourForm}/>
         <Route path="/user" component={User}/>
+        <Route path="/contact" render={ props =><MyForm {...props}/>}/>
+
       </div>
  
   );
