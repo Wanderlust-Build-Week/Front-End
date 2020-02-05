@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import {Route} from 'react-router-dom'
 import {BrowserRouter as Router} from "react-router-dom"
 import TourGuide from './components/TourGuide'
-import NewTourForm from './components/NewTourForm'
 import Login from './components/Login'
 import Register from './components/Register'
 import Home1 from './components/Home1'
