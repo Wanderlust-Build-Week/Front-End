@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from './NavBar/NavBar'
-import FormikContactForm from './Contact/ContactForm'
+import MyForm from './Contact/ContactForm'
 
 
 export default function Contact() {
@@ -8,7 +8,7 @@ export default function Contact() {
         <div>
             <NavBar />
             
-            <FormikContactForm />
+            <MyForm />
         </div>
     )
 }

@@ -6,14 +6,17 @@ export const StyledContact = styled.div`
 
 width: 100vw;
     height: 100vh;
-    background-image: url(${image});
+    background-image: url(${image}); 
 
 
-    h1.heading{
+    h1{
         color: white;
         padding: 125px 0 0 0;
     }
 
+    label{
+        color: white;
+    }
 
     img{
         width: 75%;
