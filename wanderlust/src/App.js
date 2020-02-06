@@ -21,10 +21,10 @@ function App(props) {
         <Route path="/register" render={ props =><Register {...props}/>}/>
         <Route path="/login" render={ props =><Login {...props}/>}/>
         <Route path="/tourguide/:id" component={TourGuide}/>
-        <Route path="/tourguide/newTourForm" component={FormikNewTourForm}/>
+        <Route path="/tourguide/newTourForm" render={props =><FormikNewTourForm {...props}/>}/>
         <Route path="/user" component={User}/>
         <Route path="/contact" render={ props =><MyForm {...props}/>}/>
-
+        
       </div>
  
   );
