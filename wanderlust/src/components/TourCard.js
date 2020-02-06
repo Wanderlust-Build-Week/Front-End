@@ -7,9 +7,9 @@ export default function Tour(props) {
         <Card>
             <img src="https://placekitten.com/200/300"/>
             <div className="details">
-                <h1>{props.tour.title}</h1>
-                <p>{props.tour.location}</p>
-                <p>{props.tour.description}</p>
+                <h1>{props.tours.title}</h1>
+                <p>{props.tours.location}</p>
+                <p>{props.tours.description}</p>
             </div>
         </Card>
     )
