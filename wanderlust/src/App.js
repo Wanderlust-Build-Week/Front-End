@@ -9,8 +9,10 @@ import Register from './components/Register'
 import Home1 from './components/Home1'
 import User from './components/User'
 import MyForm from './components/Contact'
+import Destinations from './components/Destinations'
 import FormikNewTourForm from './components/NewTourForm';
 import {UserDataProvider} from './components/context/userdataContext'
+import Search from './components/Search/Search'
 
 function App(props) {
   console.log("app props", props)
@@ -23,10 +25,13 @@ function App(props) {
           <Route exact path="/" render={props =><Home1 {...props}/>}/>
           <Route path="/register" render={ props =><Register {...props}/>}/>
           <Route path="/login" render={ props =><Login {...props}/>}/>
+          <Route path="/destinations" render={ props =><Destinations {...props}/>}/>
           <Route path="/tourguide/:id" component={TourGuide}/>
           <Route path="/tourguide/newTourForm" component={FormikNewTourForm}/>
           <Route path="/user" component={User}/>
           <Route path="/contact" render={ props =><MyForm {...props}/>}/>
+          <Route exact path="/search/:location" component={Search} />
+
         </UserDataProvider>
       </div>
  

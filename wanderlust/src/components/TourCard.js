@@ -1,19 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function Tour(props) {
-    console.log("TourProps", props)
+export default function Tour({title, location, description, duration, guide}) {
+    // console.log("TourProps", props)
     return (
         <Card>
             <img src="https://placekitten.com/200/300"/>
             <div className="details">
-                <h1>{props.tours.title}</h1>
-                <p>{props.tours.location}</p>
-                <p>{props.tours.description}</p>
+                <h1>{title}</h1>
+                <p>{location}</p>
+                <p>{description}</p>
+                <p>{duration}</p>
+                <p>{guide}</p>
             </div>
         </Card>
     )
 }
+
 
 const Card = styled.div`
     border: .333px solid #666;

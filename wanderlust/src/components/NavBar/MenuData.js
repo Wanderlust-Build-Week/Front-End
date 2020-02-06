@@ -1,11 +1,11 @@
 export const MenuData = [
     {
         label: 'HOME', 
-        path: '#',
+        path: '/',
     }, 
     {
         label: 'DESTINATIONS', 
-        path: '#',
+        path: '/destinations',
     },
     {
         label: 'GET IN TOUCH', 
