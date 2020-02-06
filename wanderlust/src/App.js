@@ -17,13 +17,14 @@ function App(props) {
   return (
   
       <div className="App">
-        <Route exact path="/" render={props =><Home1 {...props}/>}/>
+        {/* <Route exact path="/" render={props =><Home1 {...props}/>}/>
         <Route path="/register" render={ props =><Register {...props}/>}/>
         <Route path="/login" render={ props =><Login {...props}/>}/>
         <Route path="/tourguide/:id" component={TourGuide}/>
-        <Route path="/tourguide/newTourForm" component={FormikNewTourForm}/>
+        <Route path="/tourguide/newTourForm" component={FormikNewTourForm} duration="0"/>
         <Route path="/user" component={User}/>
-        <Route path="/contact" render={ props =><MyForm {...props}/>}/>
+        <Route path="/contact" render={ props =><MyForm {...props}/>}/> */}
+        <FormikNewTourForm duration="0"/>
 
       </div>
  

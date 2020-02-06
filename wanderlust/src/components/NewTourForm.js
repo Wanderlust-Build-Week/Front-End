@@ -14,6 +14,15 @@ const NewTourForm = ({ errors, touched, values, status }) => {
     <div className="animal-form">
       <h1>Book Your Tour Today!!</h1>
       <Form>
+
+        <Field 
+        type="text"
+        name="picImg"
+        placeholder="Img Url"
+        value={values.picture}
+        />
+        {touched.picImg && errors.picImg && <p>{errors.picImg}</p>}
+
         <Field
           type="text"
           name="title"
@@ -29,13 +38,6 @@ const NewTourForm = ({ errors, touched, values, status }) => {
           value={values.start}
         />
         {touched.start && errors.start && <p>{errors.start}</p>}
-
-        {/* <Field 
-        type="text" 
-        name="location" // <----- Did NOT like the word "Location" being used..? (would render Object object
-        on the form)
-        placeholder="Location Here"
-        /> */}
 
         <Field
           component="textarea"
@@ -74,6 +76,7 @@ const NewTourForm = ({ errors, touched, values, status }) => {
 const FormikNewTourForm = withFormik({
     mapPropsToValues({ start }) {
         return {
+            picImg:"",
             title: "",
             start: start || "",
             body: "",
@@ -83,6 +86,7 @@ const FormikNewTourForm = withFormik({
     },
 
     validationSchema: Yup.object().shape({
+        picImg:Yup.string().required("Please provide a img url"),
         title: Yup.string().required("Please fill this in!"),
         start: Yup.string().required("Please fill this in!"),
         options: Yup.string(),
