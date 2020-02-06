@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import Tour from '../TourCard'
 import axios from 'axios'
-
+import {useParams} from 'react-router-dom';
 
 export default function Search({placeholder, handleChange}) {
-
+    const {id} = useParams();
     const [tours, setTours] = useState([]);
     const [search, setSearch] = useState('');
      const [query, setQuery] = useState('');
@@ -57,7 +57,7 @@ export default function Search({placeholder, handleChange}) {
                 <div>
                 </div>
             </form>  
-            <div className="recipes">
+            <div className="tour">
                 
       {tours.map(tour => (
         <Tour 
