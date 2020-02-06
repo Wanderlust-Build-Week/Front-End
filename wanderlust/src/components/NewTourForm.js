@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-// test
-const NewTourForm = ({ errors, touched, values, status }) => {
+
+
+//Bring in Props
+const NewTourForm = (props,{ errors, touched, values, status }) => {
   const [forms , setForms] = useState([]);
 
   useEffect(() => {
@@ -98,7 +100,7 @@ const FormikNewTourForm = withFormik({
 
 }),
 
-    handleSubmit(values, { setForms, resetForm }) {
+    handleSubmit(values, props, { setForms, resetForm }) {
         console.log('Submitting Form:', values);
 
         axios
@@ -108,6 +110,7 @@ const FormikNewTourForm = withFormik({
             setForms(res.data);
             resetForm();
         })
+        .then(props.history.push("/"))
         .catch(err => {
             console.log("Error:", err.res);
         })
