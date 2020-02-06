@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import {UserDataProvider} from '../components/context/userdataContext'
-
-
+import NavBar from '../components/NavBar/NavBar'
+import { StyledLogin } from '../Styles/StyledLogin';
 
 const Login = (props) => {
 
@@ -41,15 +41,19 @@ const Login = (props) => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={SubmitHandler}>
+    
+    <StyledLogin>
+      <NavBar />
+    <div className="login-wrapper">
+      <h1 className="loginTitle">Login</h1>
+      <form onSubmit={SubmitHandler} className="loginForm">
         <input
           name="username"
           type="text"
           placeholder="username"
           value={inputField.username}
           onChange={changeHandler}
+          ClassName="userInput"
         />
         <input
           name="password"
@@ -57,10 +61,12 @@ const Login = (props) => {
           placeholder="password"
           value={inputField.password}
           onChange={changeHandler}
+          ClassName="passwordInput"
         />
-        <button typeof="submit">LogIn</button>
+        <button typeof="submit" ClassName="loginButton">LogIn</button>
       </form>
     </div>
+    </StyledLogin>
   );
 };
 
