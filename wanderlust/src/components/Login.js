@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import {UserDataProvider} from '../components/context/userdataContext'
 
-const Login = () => {
+
+
+const Login = (props) => {
+
+  // const { userData, setUserData } = useContext(UserDataProvider)
+
   const [inputField, setInputField] = useState({
-    email: "",
+    username: "",
     password: ""
   });
 
@@ -15,13 +21,20 @@ const Login = () => {
     e.preventDefault();
     axios
       .post(
-        
+        'https://wanderlust-shouts.herokuapp.com/api/auth/login',
         inputField
       )
       .then(res => {
         localStorage.setItem("token", res.data.token);
-        console.log(res);
+        // setUserData({
+        //   id: res.data.id,
+        //   username: res.data.username,
+        //   accountType: res.data.accountType
+        // })
+        console.log(res.data);
       })
+      .then(props.history.push("/"))
+
       .catch(err => {
         console.log("err", err);
       });
@@ -32,10 +45,10 @@ const Login = () => {
       <h1>Login</h1>
       <form onSubmit={SubmitHandler}>
         <input
-          name="email"
+          name="username"
           type="text"
-          placeholder="email"
-          value={inputField.email}
+          placeholder="username"
+          value={inputField.username}
           onChange={changeHandler}
         />
         <input
