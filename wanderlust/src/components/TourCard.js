@@ -8,11 +8,11 @@ export default function Tour({title, location, description, duration, guide}) {
         <Card>
             <img src={beach}/>
             <div className="details">
-                <h1>{title}</h1>
-                <p>{location}</p>
-                <p>{description}</p>
-                <p>{duration}</p>
-                <p>{guide}</p>
+                <h1 className="titleText">{title}</h1>
+                <p className="locText">Location: {location}</p>
+                <p className="descText">{description}</p>
+                <p className="durText">Duration: {duration}</p>
+                <p className="guideText">{guide} Tour</p>
             </div>
         </Card>
     )
@@ -20,11 +20,15 @@ export default function Tour({title, location, description, duration, guide}) {
 
 
 const Card = styled.div`
+
+
+display: flex;
+    align-items: center;
     border: .333px solid #666;
     width: 80%;
     height: auto;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 100px;
     border-radius: 5px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
     0 2px 2px rgba(0,0,0,0.12), 
@@ -41,4 +45,14 @@ const Card = styled.div`
         height: 100%;
         object-fit: cover;
     }
+    
+    .titleText{
+        padding: 5%;
+    }
+
+.descText{
+    text-align: justify;
+    padding: 5%;
+}
+
 `

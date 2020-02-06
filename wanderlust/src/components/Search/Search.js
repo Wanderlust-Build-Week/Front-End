@@ -2,15 +2,18 @@ import React, {useState, useEffect} from 'react'
 import Tour from '../TourCard'
 import axios from 'axios'
 import {useParams} from 'react-router-dom';
+import {useLocalStorage} from '../hooks/LocalStorageHook.js'
 
 export default function Search({placeholder, handleChange}) {
     const {id} = useParams();
     const [tours, setTours] = useState([]);
+   
+    // const [tours, setTours] = useLocalStorage('Tour');
     const [search, setSearch] = useState('');
      const [query, setQuery] = useState('');
 
   
-    let url= `https://wanderlust-shouts.herokuapp.com/api/tours/?location=${query}/?title=${query}`
+    let url= `https://wanderlust-shouts.herokuapp.com/api/tours/?location=${query}`
     
       useEffect(() => {
         axios
@@ -28,6 +31,7 @@ export default function Search({placeholder, handleChange}) {
   
         
   const updateSearch = e => {
+    e.preventDefault();
     setQuery(e.target.value)
     console.log(query)
   }
@@ -50,6 +54,7 @@ export default function Search({placeholder, handleChange}) {
                 onChange={updateSearch}
                 placeholder={placeholder}
                 search={search}
+                handleSubmit={getSearch}
                 />
                 
 
@@ -68,6 +73,7 @@ export default function Search({placeholder, handleChange}) {
           duration={tour.duration}
           guide={tour.guide}
           description={tour.description}
+          query={query}
 
         />
       ))}
