@@ -19,11 +19,9 @@ export default function Search({placeholder, handleChange}) {
         axios
           .get(url)
           .then(response => {
-            console.log(response.data)
-            const getTour = response.data.filter(e =>
-            e.location.toLowerCase().includes(query.toLowerCase())
-            );
-              setTours(getTour);
+              console.log(response.data)
+              setTours([...response.data]);
+              console.log("tours",tours)
             })
             
             .catch(err => console.log(err));
@@ -34,6 +32,13 @@ export default function Search({placeholder, handleChange}) {
     e.preventDefault();
     setQuery(e.target.value)
     console.log(query)
+
+    const getTour = tours.filter(e =>
+      e.location.toLowerCase().includes(query.toLowerCase())
+    );
+    
+    console.log("getTour", getTour)
+    setTours(getTour)
   }
 
   const getSearch = e => {
