@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import NavBar from "./NavBar/NavBar"
+import { StyledRegister } from '../Styles/StyledRegister';
 
 const Register = (props) => {
   const [inputField, setInputField] = useState({
@@ -31,21 +32,23 @@ const Register = (props) => {
   };
   console.log(inputField);
   return (
+    <StyledRegister>
     <div>
       <NavBar />
-      <h1>Register</h1>
-      <form onSubmit={SubmitHandler}>
+      <div className="form-wrapper">
+      <h1>Sign Up</h1>
+      <form onSubmit={SubmitHandler} >
         <input
           name="username"
           type="text"
-          placeholder="username"
+          placeholder="Username"
           value={inputField.username}
           onChange={changeHandler}
         />
         <input
           name="password"
           type="password"
-          placeholder="password"
+          placeholder="Password"
           value={inputField.password}
           onChange={changeHandler}
         />
@@ -57,9 +60,11 @@ const Register = (props) => {
         onChange={changeHandler}
         />
 
-        <button typeof="submit">Register</button>
+        <button typeof="submit">Sign Up</button>
       </form>
+      </div>
     </div>
+    </StyledRegister>
   );
 };
 
