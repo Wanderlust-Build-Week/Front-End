@@ -100,7 +100,7 @@ const FormikNewTourForm = withFormik({
 
 }),
 
-    handleSubmit(values, { setForms, resetForm }) {
+    handleSubmit(values,{ setForms, resetForm }) {
         console.log('Submitting Form:', values);
 
         axios
@@ -110,7 +110,6 @@ const FormikNewTourForm = withFormik({
             setForms(res.data);
             resetForm();
         })
-        // .then(props.history.push("/"))
         .catch(err => {
             console.log("Error:", err.res);
         })

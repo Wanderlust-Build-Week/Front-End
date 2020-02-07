@@ -1,11 +1,11 @@
 export const MenuData = [
     {
         label: 'HOME', 
-        path: '#',
+        path: '/',
     }, 
     {
         label: 'DESTINATIONS', 
-        path: '#',
+        path: '/destinations',
     },
     {
         label: 'GET IN TOUCH', 
@@ -18,6 +18,10 @@ export const MenuData = [
     {
         label: 'LOGIN', 
         path: '/login',
+    },
+    {
+        label: 'SIGN UP', 
+        path: '/register',
     },
 
     
