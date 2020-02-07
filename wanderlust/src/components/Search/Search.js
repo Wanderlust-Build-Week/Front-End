@@ -62,7 +62,7 @@ export default function Search({placeholder, handleChange}) {
                 />
                 
                 <Link to={{
-                  pathname: '/destinations',
+                  pathname: `/destinations/{query}`,
                   state: {
                     toursList: tours
                   }
