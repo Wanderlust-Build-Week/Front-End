@@ -80,7 +80,7 @@ const NewTourForm = ({ errors, touched, values, status, handleSubmit }) => {
 // higher order component
 const FormikNewTourForm = withFormik({
     mapPropsToValues({ start }) {
-        return {
+        return{
             photo:"",
             title: "",
             location: "",
@@ -104,15 +104,15 @@ const FormikNewTourForm = withFormik({
 
     handleSubmit(values,{ setForms, resetForm }) {
         console.log('Submitting Form:', values);
+        
+        const tour = values;
 
         axios
-        .post("https://wanderlust-shouts.herokuapp.com/api/tours/upload", values, {
-          headers: {
-            Authorization: localStorage.getItem('token'),
-          },
-        })
+        .post("https://wanderlust-shouts.herokuapp.com/api/tours/upload", {tour, token: localStorage.getItem('token')}
+        )
+        
         .then(res => {
-            console.log("Success:", res);
+            console.log("Success:", res.data);
             setForms(res.data);
             resetForm();
         })
