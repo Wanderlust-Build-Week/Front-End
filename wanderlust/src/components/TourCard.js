@@ -57,4 +57,21 @@ const Card = styled.div`
     padding: 5%;
 }
 
+button {
+    width: 150px;
+    margin: 2%;
+    color:white;
+    background-color:  #3878b2;
+    border: 1px solid #e9ecef;
+
+    &:hover {
+        background-color: #4682b9;
+        color: white;
+    }
+}
+
+::nth-child(3){
+    height: 300px;
+}
+
 `
