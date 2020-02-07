@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 //Bring in Props
-const NewTourForm = ({ errors, touched, values, status }) => {
+const NewTourForm = ({ errors, touched, values, status, handleSubmit }) => {
   const [forms , setForm] = useState([]);
 
   useEffect(() => {
@@ -13,17 +13,18 @@ const NewTourForm = ({ errors, touched, values, status }) => {
   }, [status]);
 
   return (
-    <div className="animal-form">
+    <div className="tour-form">
       <h1>Book Your Tour Today!!</h1>
-      <Form>
+      <Form onSubmit={handleSubmit}>
+      
 
         <Field 
         type="text"
-        name="picImg"
+        name="photo"
         placeholder="Img Url"
-        value={values.picture}
+        value={values.photo}
         />
-        {touched.picImg && errors.picImg && <p>{errors.picImg}</p>}
+        {touched.photo && errors.photo && <p>{errors.photo}</p>}
 
         <Field
           type="text"
@@ -35,19 +36,20 @@ const NewTourForm = ({ errors, touched, values, status }) => {
 
         <Field
           type="text"
-          name="start"
+          name="location"
           placeholder="Location Here"
-          value={values.start}
+          value={values.location}
         />
-        {touched.start && errors.start && <p>{errors.start}</p>}
+        {touched.location && errors.location && <p>{errors.location}</p>}
 
         <Field
           component="textarea"
           type="text"
-          name="body"
+          name="description"
           placeholder="Tell us about it!"
-          value={values.body}
+          value={values.description}
         />
+        {touched.description && errors.description && <p>{errors.description}</p>}
         
 
         <Field 
@@ -59,12 +61,13 @@ const NewTourForm = ({ errors, touched, values, status }) => {
         />
         {touched.duration && errors.duration && <p>{errors.duration}</p>}
 
-        <Field component="select" name="options" value={values.options}>
+        <Field as="select" name="guide">
           <option>Choose an option</option>
-          <option>Private</option>
-          <option>Professional</option>
-          {touched.options && errors.options && <p>{errors.options}</p>}
+          <option value="Private">Private</option>
+          <option value="Professional">Professional</option>
+          {touched.guide && errors.guide && <p>{errors.guide}</p>}
         </Field>
+        
 
         <button type="submit">Enter</button>
 
@@ -77,24 +80,23 @@ const NewTourForm = ({ errors, touched, values, status }) => {
 // higher order component
 const FormikNewTourForm = withFormik({
     mapPropsToValues({ start }) {
-        return {
-            picImg:"",
+        return{
+            photo:"",
             title: "",
-            start: start || "",
-            body: "",
+            location: "",
+            description: "",
             duration: "",
-            options: ""
+            guide: ""
         };
     },
 
     validationSchema: Yup.object().shape({
-        picImg:Yup.string().required("Please provide a img url"),
+        photo:Yup.string().required("Please provide a img url"),
         title: Yup.string().required("Please fill this in!"),
-        start: Yup.string().required("Please fill this in!"),
-        options: Yup.string(),
-        body: Yup.string(),
-        duration: Yup.string().required("Please fill this in!"),
-        options: Yup.string()
+        location: Yup.string().required("Please fill this in!"),
+        description: Yup.string(),
+        duration: Yup.string().required("This is required!"),
+        guide: Yup.string()
       .oneOf(["Private", "Professional"])
       .required("Please choose a value!"),
 
@@ -102,11 +104,15 @@ const FormikNewTourForm = withFormik({
 
     handleSubmit(values,{ setForms, resetForm }) {
         console.log('Submitting Form:', values);
+        
+        const tour = values;
 
         axios
-        .post("https://wanderlust-shouts.herokuapp.com/api/tours/upload", values)
+        .post("https://wanderlust-shouts.herokuapp.com/api/tours/upload", {tour, token: localStorage.getItem('token')}
+        )
+        
         .then(res => {
-            console.log("Success:", res);
+            console.log("Success:", res.data);
             setForms(res.data);
             resetForm();
         })
