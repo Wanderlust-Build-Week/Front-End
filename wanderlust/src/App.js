@@ -26,6 +26,7 @@ function App(props) {
           <Route path="/register" render={ props =><Register {...props}/>}/>
           <Route path="/login" render={ props =><Login {...props}/>}/>
           <Route path="/destinations" render={ props =><Destinations {...props}/>}/>
+          <Route path="/destinations/:id" render={ props =><Destinations {...props}/>}/>
           <Route path="/tourguide/:id" component={TourGuide}/>
           <Route path="/tourguide/newTourForm" component={FormikNewTourForm}/>
           <Route path="/user" component={User}/>
