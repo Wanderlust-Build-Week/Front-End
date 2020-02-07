@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import NavBar from "./NavBar/NavBar"
 
 const Register = (props) => {
   const [inputField, setInputField] = useState({
@@ -31,6 +32,7 @@ const Register = (props) => {
   console.log(inputField);
   return (
     <div>
+      <NavBar />
       <h1>Register</h1>
       <form onSubmit={SubmitHandler}>
         <input
