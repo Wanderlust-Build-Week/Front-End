@@ -2,19 +2,22 @@ import styled from 'styled-components';
 
 export const StyledNav = styled.div`
     
-
+    width: 100%;
 
     .NavBar {
         display: flex;
         background-color: rgba(255, 255, 255, 0.6);
         height: 80px;
         position: fixed;
+        width: 100%;
+       
     }
     .logo{
         width: 30%;
+        height: 80px;
     }
     img{
-        width: 34%;
+        height: 65px;
         margin: 1%;
     }
 

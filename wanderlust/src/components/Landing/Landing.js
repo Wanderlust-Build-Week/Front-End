@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
 import SimpleSlider from '../Carousel/SimpleSlider';
 import './Landing.css';
+import Search from '../Search/Search'
+import {Wrapper} from '../../Styles/StyledWrapper';
 
-export default function Landing() {
-    return (
-        <div className="wrapper">
-             <SimpleSlider />   
-            <div className="searchWrapper">
-                    <input className="searchBar" text="Search" placeholder="Where do you want to go?"/><i className="fas fa-caret-left"></i><button><i class="fas fa-search"></i></button>
-                
-                </div>   
-                 
-        </div>
+export default function Landing(props) {
+  
+  return (
+    <Wrapper>
+      <SimpleSlider />   
+      <Search
+        placeholder="Where do you want to go?" />
+    </Wrapper>
     )
 }

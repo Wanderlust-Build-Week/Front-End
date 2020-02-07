@@ -1,26 +1,36 @@
 import React from 'react'
 import styled from 'styled-components'
+import beach from "../images/beach.jpg"
 
-export default function Tour(props) {
-    console.log("TourProps", props)
+export default function Tour({title, location, description, duration, guide}) {
+    // console.log("TourProps", props)
     return (
-        <Card>
-            <img src="https://placekitten.com/200/300"/>
+        <Card className="tours">
+            <img src={beach}/>
             <div className="details">
-                <h1>{props.tour.title}</h1>
-                <p>{props.tour.location}</p>
-                <p>{props.tour.description}</p>
-            </div>
+                <h1 className="titleText">{title}</h1>
+                <p className="locText">Location: {location}</p>
+                <p className="descText">{description}</p>
+                <p className="durText">Duration: {duration}</p>
+                <p className="guideText">{guide} Tour</p>
+                <button>Contact Guide</button>
+                            </div>
         </Card>
     )
 }
 
+
 const Card = styled.div`
+
+
+    display: flex;
+    align-items: center;
     border: .333px solid #666;
     width: 80%;
     height: auto;
-    margin: 0 auto;
-    margin-top: 10px;
+    justify-content: center;
+    margin-bottom: 25px;
+   
     border-radius: 5px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
     0 2px 2px rgba(0,0,0,0.12), 
@@ -33,8 +43,35 @@ const Card = styled.div`
         width: 80%;
     }
     img{
-        width: auto;
-        height: 100%;
+        width: 60%;
+        height: auto;
         object-fit: cover;
     }
+    
+    .titleText{
+        padding: 5%;
+    }
+
+.descText{
+    text-align: justify;
+    padding: 5%;
+}
+
+button {
+    width: 150px;
+    margin: 2%;
+    color:white;
+    background-color:  #3878b2;
+    border: 1px solid #e9ecef;
+
+    &:hover {
+        background-color: #4682b9;
+        color: white;
+    }
+}
+
+::nth-child(3){
+    height: 300px;
+}
+
 `

@@ -1,0 +1,17 @@
+.iso-search{
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    justify-content: center;
+    border: 1px solid #e9ecef;
+         
+  
+}
+
+  #isoSearch.fas.fa-caret-left {
+         font-size: 1.5rem;
+         color: #333333;
+         vertical-align: -.125em;
+         z-index: 3;
+         margin-right: -2px;
+  }

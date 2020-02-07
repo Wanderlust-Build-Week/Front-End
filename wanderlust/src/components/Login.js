@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import {UserDataProvider} from '../components/context/userdataContext'
+import NavBar from '../components/NavBar/NavBar'
+import { StyledLogin } from '../Styles/StyledLogin';
 
-const Login = () => {
+const Login = (props) => {
+
+  // const { userData, setUserData } = useContext(UserDataProvider)
+
   const [inputField, setInputField] = useState({
-    email: "",
+    username: "",
     password: ""
   });
 
@@ -15,28 +21,40 @@ const Login = () => {
     e.preventDefault();
     axios
       .post(
-        
+        'https://wanderlust-shouts.herokuapp.com/api/auth/login',
         inputField
       )
       .then(res => {
         localStorage.setItem("token", res.data.token);
-        console.log(res);
+        localStorage.setItem('user', JSON.stringify(res.data.users))
+        // setUserData({
+        //   id: res.data.id,
+        //   username: res.data.username,
+        //   accountType: res.data.accountType
+        // })
+        console.log(res.data);
       })
+      .then(props.history.push("/"))
+
       .catch(err => {
         console.log("err", err);
       });
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={SubmitHandler}>
+    
+    <StyledLogin>
+      <NavBar />
+    <div className="login-wrapper">
+      <h1 className="loginTitle">Login</h1>
+      <form onSubmit={SubmitHandler} className="loginForm">
         <input
-          name="email"
+          name="username"
           type="text"
-          placeholder="email"
-          value={inputField.email}
+          placeholder="username"
+          value={inputField.username}
           onChange={changeHandler}
+          ClassName="userInput"
         />
         <input
           name="password"
@@ -44,10 +62,12 @@ const Login = () => {
           placeholder="password"
           value={inputField.password}
           onChange={changeHandler}
+          ClassName="passwordInput"
         />
-        <button typeof="submit">LogIn</button>
+        <button typeof="submit" ClassName="loginButton">LogIn</button>
       </form>
     </div>
+    </StyledLogin>
   );
 };
 

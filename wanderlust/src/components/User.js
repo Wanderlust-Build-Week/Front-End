@@ -13,10 +13,10 @@ export default function User() {
         .then(res => {
             // Code for handling API response
             console.log("res", res.data)
-            setTourz(res.data)
+            setTourz([...res.data])
         })
         .catch(function(err) {
-            console.log(err.error)
+            console.log("error", err)
             // Code for handling errors
         });
 
@@ -26,6 +26,7 @@ export default function User() {
     return (
         
         <div>
+            <h1>Tours List</h1>
             {tourz.map(function(tour){
                 return <TourCard tour={tour}/>
             })}
