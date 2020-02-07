@@ -13,7 +13,8 @@ export default function Tour({title, location, description, duration, guide}) {
                 <p className="descText">{description}</p>
                 <p className="durText">Duration: {duration}</p>
                 <p className="guideText">{guide} Tour</p>
-            </div>
+                <button>Contact Guide</button>
+                            </div>
         </Card>
     )
 }
