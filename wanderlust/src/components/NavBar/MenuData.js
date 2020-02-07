@@ -19,6 +19,10 @@ export const MenuData = [
         label: 'LOGIN', 
         path: '/login',
     },
+    {
+        label: 'SIGN UP', 
+        path: '/register',
+    },
 
     
 ];

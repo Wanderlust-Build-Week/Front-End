@@ -8,23 +8,21 @@ export default function Search({placeholder, handleChange}) {
     const {id} = useParams();
     const [tours, setTours] = useState([]);
    
-    // const [tours, setTours] = useLocalStorage('Tour');
     const [search, setSearch] = useState('');
      const [query, setQuery] = useState('');
 
   
-    let url= `https://wanderlust-shouts.herokuapp.com/api/tours/?location=${query}`
+    let url= `https://wanderlust-shouts.herokuapp.com/api/tours/?location=${query}/?title=${query}`
     
       useEffect(() => {
         axios
           .get(url)
           .then(response => {
             console.log(response.data)
-            const getTour = response.data.filter(e =>
-            e.location.toLowerCase().includes(query.toLowerCase())
-            );
-              setTours(getTour);
-            })
+ 
+            setTours([...response.data])
+            }
+            )
             
             .catch(err => console.log(err));
         }, []);
@@ -34,7 +32,12 @@ export default function Search({placeholder, handleChange}) {
     e.preventDefault();
     setQuery(e.target.value)
     console.log(query)
-  }
+    const getTour = tours.filter(e =>
+      e.location.toLowerCase().includes(query.toLowerCase())
+      );
+        setTours(getTour);
+      }
+  
 
   const getSearch = e => {
     e.preventDefault();
