@@ -5,11 +5,11 @@ export const StyledSearchBar = styled.div`
 
     .searchWrapper{
         width: 80%;
-
+         border: 1px solid #e9ecef;
     }
 
         input{
-         
+           
         }
         input::placeholder {
             color: grey;

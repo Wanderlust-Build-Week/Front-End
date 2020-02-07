@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-
+import { StyledTourForm } from '../Styles/StyledTourForm';
+import NavBar from './NavBar/NavBar'
 
 //Bring in Props
 const NewTourForm = ({ errors, touched, values, status, handleSubmit }) => {
@@ -13,7 +14,10 @@ const NewTourForm = ({ errors, touched, values, status, handleSubmit }) => {
   }, [status]);
 
   return (
-    <div className="tour-form">
+   
+    <StyledTourForm>
+     <NavBar />
+     <div className="tour-form">
       <h1>Book Your Tour Today!!</h1>
       <Form onSubmit={handleSubmit}>
       
@@ -74,6 +78,7 @@ const NewTourForm = ({ errors, touched, values, status, handleSubmit }) => {
       </Form>
 
     </div>
+    </StyledTourForm>
   );
 };
 

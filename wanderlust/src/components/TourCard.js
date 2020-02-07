@@ -5,7 +5,7 @@ import beach from "../images/beach.jpg"
 export default function Tour({title, location, description, duration, guide}) {
     // console.log("TourProps", props)
     return (
-        <Card>
+        <Card className="tours">
             <img src={beach}/>
             <div className="details">
                 <h1 className="titleText">{title}</h1>
@@ -55,6 +55,23 @@ const Card = styled.div`
 .descText{
     text-align: justify;
     padding: 5%;
+}
+
+button {
+    width: 150px;
+    margin: 2%;
+    color:white;
+    background-color:  #3878b2;
+    border: 1px solid #e9ecef;
+
+    &:hover {
+        background-color: #4682b9;
+        color: white;
+    }
+}
+
+::nth-child(3){
+    height: 300px;
 }
 
 `

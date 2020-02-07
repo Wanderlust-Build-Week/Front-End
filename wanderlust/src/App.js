@@ -32,6 +32,7 @@ function App(props) {
           <Route path="/user" component={User}/>
           <Route path="/contact" render={ props =><MyForm {...props}/>}/>
           <Route exact path="/search/:location" component={Search} />
+          <Route path="/about" component={() => { window.location.href = 'https://trusting-varahamihira-cb701c.netlify.com/about.html'; return null;}}/>
 
         </UserDataProvider>
       </div>

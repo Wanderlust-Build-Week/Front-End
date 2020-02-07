@@ -13,7 +13,7 @@ export const MenuData = [
     },
     {
         label: 'ABOUT', 
-        path: '#',
+        path: 'about',
     },
     {
         label: 'LOGIN', 

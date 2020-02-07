@@ -10,12 +10,14 @@ export const StyledNav = styled.div`
         height: 80px;
         position: fixed;
         width: 100%;
+       
     }
     .logo{
         width: 30%;
+        height: 80px;
     }
     img{
-        width: 34%;
+        height: 65px;
         margin: 1%;
     }
 
