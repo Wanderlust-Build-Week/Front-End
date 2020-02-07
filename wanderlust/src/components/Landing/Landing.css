@@ -47,7 +47,7 @@ button{
         
     }
 
-    .fas.fa-caret-left{
+     #landing.fas.fa-caret-left{
         display: inline-block;
         font-size: 3rem;
         color:  #333333;

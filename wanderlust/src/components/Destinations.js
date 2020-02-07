@@ -4,6 +4,8 @@ import TourCard from './TourCard'
 import Search from './Search/Search'
 import axios from 'axios'
 import {useParams} from 'react-router-dom';
+import {Wrapper} from '../Styles/StyledWrapper'
+import IsoSearch from '../components/IsoSearch'
 
 export default function Destinations(props) {
     const [tours, setTours] = useState([]);
@@ -51,17 +53,17 @@ export default function Destinations(props) {
     // }
 
     return (
-        <div>
+       
+        <Wrapper>
         <NavBar />
-        {/* <Search 
-            placeholder="Where do you want to go?"/> */}
+         <IsoSearch
+            placeholder="Where do you want to go?"/> 
 
 
-            <div>
+         
                 {tours.map(function(tour){
                    return  <TourCard tour={tour}/>
                 })}
-            </div>   
-        </div>
+             </Wrapper>
     )
 }

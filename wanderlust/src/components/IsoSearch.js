@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import Tour from '../TourCard'
 import axios from 'axios'
 import {useParams} from 'react-router-dom';
-import {useLocalStorage} from '../hooks/LocalStorageHook.js'
 import {Link} from 'react-router-dom';
-import {Wrapper} from '../../Styles/StyledWrapper'
+import {Wrapper} from '../Styles/StyledWrapper';
+import './isoSearch.css'
 
-export default function Search({placeholder, handleChange}) {
+ function IsoSearch({placeholder, handleChange}) {
     const {id} = useParams();
     const [tours, setTours] = useState([]);
    
@@ -50,7 +49,9 @@ export default function Search({placeholder, handleChange}) {
 
     return (
         <Wrapper>
-            <form onSubmit={getSearch} className="searchWrapper" > 
+        
+            <form onSubmit={getSearch} className="iso-search" > 
+            
                 <input 
                 className="searchBar" 
                 type="text"
@@ -68,28 +69,11 @@ export default function Search({placeholder, handleChange}) {
                     toursList: tours
                   }
                 }}>
-                  <i id="landing" className="fas fa-caret-left"></i><button type="submit"><i class="fas fa-search"></i></button>
+                   <i id="isoSearch" className="fas fa-caret-left"/><button type="submit"><i class="fas fa-search"></i></button>
                 </Link>
-                
-                <div>
-                </div>
             </form>  
-            
-                
-      {tours.map(tour => (
-        <Tour 
-       
-          key={tour.id}
-          title={tour.title} 
-          location={tour.location}
-          duration={tour.duration}
-          guide={tour.guide}
-          description={tour.description}
-          query={query}
-
-        />
-      ))}
-      
         </Wrapper>
     )
-}
+            }
+
+     export default IsoSearch

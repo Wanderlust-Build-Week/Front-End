@@ -23,13 +23,14 @@ export default function Tour({title, location, description, duration, guide}) {
 const Card = styled.div`
 
 
-display: flex;
+    display: flex;
     align-items: center;
     border: .333px solid #666;
     width: 80%;
     height: auto;
-    margin: 0 auto;
-    margin-top: 100px;
+    justify-content: center;
+    margin-bottom: 25px;
+   
     border-radius: 5px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
     0 2px 2px rgba(0,0,0,0.12), 
@@ -42,8 +43,8 @@ display: flex;
         width: 80%;
     }
     img{
-        width: auto;
-        height: 100%;
+        width: 60%;
+        height: auto;
         object-fit: cover;
     }
     
