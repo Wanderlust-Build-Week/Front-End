@@ -5,11 +5,11 @@ import axios from "axios";
 
 
 //Bring in Props
-const NewTourForm = (props,{ errors, touched, values, status }) => {
-  const [forms , setForms] = useState([]);
+const NewTourForm = ({ errors, touched, values, status }) => {
+  const [forms , setForm] = useState([]);
 
   useEffect(() => {
-    status && setForms(tours => [...tours, status]);
+    status && setForm(tours => [...tours, status]);
   }, [status]);
 
   return (
@@ -100,17 +100,16 @@ const FormikNewTourForm = withFormik({
 
 }),
 
-    handleSubmit(values, props, { setForms, resetForm }) {
+    handleSubmit(values,{ setForms, resetForm }) {
         console.log('Submitting Form:', values);
 
         axios
-        .post("https://wanderlust-shouts.herokuapp.com/api/tours", values)
+        .post("https://wanderlust-shouts.herokuapp.com/api/tours/upload", values)
         .then(res => {
             console.log("Success:", res);
             setForms(res.data);
             resetForm();
         })
-        .then(props.history.push("/"))
         .catch(err => {
             console.log("Error:", err.res);
         })
