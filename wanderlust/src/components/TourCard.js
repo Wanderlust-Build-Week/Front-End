@@ -5,7 +5,7 @@ import beach from "../images/beach.jpg"
 export default function Tour({title, location, description, duration, guide}) {
     // console.log("TourProps", props)
     return (
-        <Card>
+        <Card className="tours">
             <img src={beach}/>
             <div className="details">
                 <h1 className="titleText">{title}</h1>

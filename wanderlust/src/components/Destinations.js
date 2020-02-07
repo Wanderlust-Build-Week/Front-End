@@ -4,6 +4,8 @@ import TourCard from './TourCard'
 import Search from './Search/Search'
 import axios from 'axios'
 import {useParams} from 'react-router-dom';
+import { StyledDestinations } from '../Styles/StyledDestinations';
+
 
 export default function Destinations(props) {
     const [tours, setTours] = useState([]);
@@ -51,17 +53,19 @@ export default function Destinations(props) {
     // }
 
     return (
-        <div>
+        <StyledDestinations>
+        <div className="dest-wrapper">
         <NavBar />
-        {/* <Search 
-            placeholder="Where do you want to go?"/> */}
+        <Search className="destSearch"
+            placeholder="Where do you want to go?"/>
 
 
             <div>
                 {tours.map(function(tour){
-                   return  <TourCard tour={tour}/>
+                   return  <TourCard tour={tour} className="dest-card"/>
                 })}
             </div>   
         </div>
+        </StyledDestinations>
     )
 }
