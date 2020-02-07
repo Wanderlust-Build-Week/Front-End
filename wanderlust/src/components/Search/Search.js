@@ -3,6 +3,7 @@ import Tour from '../TourCard'
 import axios from 'axios'
 import {useParams} from 'react-router-dom';
 import {useLocalStorage} from '../hooks/LocalStorageHook.js'
+import {Link} from 'react-router-dom'
 
 export default function Search({placeholder, handleChange}) {
     const {id} = useParams();
@@ -60,8 +61,15 @@ export default function Search({placeholder, handleChange}) {
                 handleSubmit={getSearch}
                 />
                 
-
-                <i className="fas fa-caret-left"></i><button type="submit"><i class="fas fa-search"></i></button>
+                <Link to={{
+                  pathname: '/destinations',
+                  state: {
+                    toursList: tours
+                  }
+                }}>
+                  <i className="fas fa-caret-left"></i><button type="submit"><i class="fas fa-search"></i></button>
+                </Link>
+                
                 <div>
                 </div>
             </form>  

@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import NavBar from './NavBar/NavBar'
-import Tour from './TourCard'
+import TourCard from './TourCard'
 import Search from './Search/Search'
 
 import {useParams} from 'react-router-dom';
 
-export default function Destinations({tours, setTours}) {
+export default function Destinations(props) {
+    console.log("destinations", props.location.state.toursList)
+
+    let tours = props.location.state.toursList
     // const {id} = useParams();
     // const[dest, setDest] = useState({})
 
@@ -28,9 +31,9 @@ export default function Destinations({tours, setTours}) {
 
 
             <div>
-            Destination cards go here
-            <Tour 
-            />
+                {tours.map(function(tour){
+                   return  <TourCard tour={tour}/>
+                })}
             </div>   
         </div>
     )
