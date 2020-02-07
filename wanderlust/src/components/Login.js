@@ -26,6 +26,7 @@ const Login = (props) => {
       )
       .then(res => {
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem('user', JSON.stringify(res.data.users))
         // setUserData({
         //   id: res.data.id,
         //   username: res.data.username,
