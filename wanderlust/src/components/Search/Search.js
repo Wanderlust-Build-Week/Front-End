@@ -5,6 +5,7 @@ import {useParams} from 'react-router-dom';
 import {useLocalStorage} from '../hooks/LocalStorageHook.js'
 import {Link} from 'react-router-dom';
 import {Wrapper} from '../../Styles/StyledWrapper'
+import Anime, {anime} from 'react-anime';
 
 export default function Search({placeholder, handleChange}) {
     const {id} = useParams();
@@ -75,7 +76,7 @@ export default function Search({placeholder, handleChange}) {
                 </div>
             </form>  
             
-                
+     <Anime  easing="easeOutElastic" opacity={[0, 2]} translateY={'1em'}  delay={(e, i) => i * 2000}>
       {tours.map(tour => (
         <Tour 
        
@@ -85,11 +86,11 @@ export default function Search({placeholder, handleChange}) {
           duration={tour.duration}
           guide={tour.guide}
           description={tour.description}
-          query={query}
+          query={query} 
 
         />
       ))}
-      
+      </Anime>
         </Wrapper>
     )
 }

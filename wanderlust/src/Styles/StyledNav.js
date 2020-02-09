@@ -10,6 +10,7 @@ export const StyledNav = styled.div`
         height: 80px;
         position: fixed;
         width: 100%;
+        z-index: 5;
        
     }
     .logo{
