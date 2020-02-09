@@ -34,7 +34,7 @@ const Login = (props) => {
         // })
         console.log(res.data);
       })
-      .then(props.history.push("/"))
+      .then(props.history.push("/tourguide/newTourForm"))
 
       .catch(err => {
         console.log("err", err);
