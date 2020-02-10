@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import beach from "../images/beach.jpg"
+import {Link} from 'react-router-dom'
+
 
 export default function Tour({title, location, description, duration, guide}) {
     // console.log("TourProps", props)
@@ -13,7 +15,7 @@ export default function Tour({title, location, description, duration, guide}) {
                 <p className="descText">{description}</p>
                 <p className="durText">Duration: {duration}</p>
                 <p className="guideText">{guide} Tour</p>
-                <button>Contact Guide</button>
+                <Link to="/contact"> <button>Contact Guide</button></Link>
                             </div>
         </Card>
     )
@@ -29,7 +31,8 @@ const Card = styled.div`
     width: 80%;
     height: auto;
     justify-content: center;
-    margin-bottom: 25px;
+    margin: 25px auto;
+    
    
     border-radius: 5px;
     box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
@@ -73,5 +76,9 @@ button {
 ::nth-child(3){
     height: 300px;
 }
+.tours{
+    margin: auto;
+}
+
 
 `
