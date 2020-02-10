@@ -6,6 +6,8 @@ import axios from 'axios'
 import {useParams} from 'react-router-dom';
 import {Wrapper} from '../Styles/StyledWrapper'
 import IsoSearch from '../components/IsoSearch'
+import Anime, {anime} from 'react-anime';
+
 
 export default function Destinations(props) {
     const [tours, setTours] = useState([]);
@@ -60,10 +62,18 @@ export default function Destinations(props) {
             placeholder="Where do you want to go?"/> 
 
 
-         
+                <Anime  easing="easeOutElastic" opacity={[0, 2]} translateY={'1em'} delay={(e, i) => i * 2000}>
                 {tours.map(function(tour){
-                   return  <TourCard tour={tour}/>
+                   return  <TourCard tour={tour}
+                   key={tour.id}
+                   title={tour.title} 
+                   location={tour.location}
+                   duration={tour.duration}
+                   guide={tour.guide}
+                   description={tour.description}
+                   c />
                 })}
+                </Anime >
              </Wrapper>
     )
 }

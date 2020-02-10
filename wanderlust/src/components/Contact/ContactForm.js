@@ -1,5 +1,6 @@
 import React from "react";
 import { StyledContact } from '../../Styles/StyledContact';
+import Anime, {anime} from 'react-anime';
 
 export default class MyForm extends React.Component {
   constructor(props) {
@@ -20,13 +21,15 @@ export default class MyForm extends React.Component {
         method="POST"
       >
        <h1> Contact us!</h1>
+       <Anime  className="contact-wrapper" easing="easeOutElastic" opacity={[0, 2]} translateY={'1em'} delay={(e, i) => i * 500}>
+
         <input type="name" name="name" placeholder="Enter your name" />
        
         <input type="email" name="email" placeholder="Enter your Email" />
         
         <input type="textarea" name="message" placeholder="What would you like to say?"/>
         {status === "SUCCESS" ? <p>Thanks!</p> : <button>Submit</button>}
-        {status === "ERROR" && <p>Ooops! There was an error.</p>}
+        {status === "ERROR" && <p>Ooops! There was an error.</p>}</Anime>
       </form></StyledContact>
     );
   }

@@ -22,13 +22,12 @@ width: 100vw;
         width: 75%;
     }
 
-        .contactForm{
+        .contact-wrapper0{
             display: flex;
             flex-direction: column;
             width: 50%;
             justify-content: center;
             margin: auto;
-            padding: 5%;
 
             input {
                 padding: 1%;
