@@ -122,6 +122,7 @@ const FormikNewTourForm = withFormik({
             resetForm();
         })
         .catch(err => {
+            resetForm();
             console.log("Error:", err.res);
         })
     }

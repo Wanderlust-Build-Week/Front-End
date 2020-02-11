@@ -62,10 +62,11 @@ export default function Destinations(props) {
             placeholder="Where do you want to go?"/> 
 
 
-                <Anime  easing="easeOutElastic" opacity={[0, 2]} translateY={'1em'} delay={(e, i) => i * 2000}>
+                <Anime  easing="easeOutElastic" opacity={[0, 2]} translateY={'1em'} delay={(e, i) => i * 750}>
                 {tours.map(function(tour){
                    return  <TourCard tour={tour}
                    key={tour.id}
+                   photo={tour.photo}
                    title={tour.title} 
                    location={tour.location}
                    duration={tour.duration}
